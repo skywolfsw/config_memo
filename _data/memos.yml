@@ -1,0 +1,13 @@
+centos:
+  title: centos
+  path: '/memo/centos/samba'
+  list:
+
+    samba:
+      title: 文件共享
+      path: '/memo/centos/samba'
+    
+    ruby:
+      title: ruby
+      path: 'memo/centos/ruby'
+

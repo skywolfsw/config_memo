@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% include header.html %}
+  <div class="catalog">
+    <ul>
+      {% for memo in site.data.memos %}
+        <li>
+          <a href="{{ site.baseurl }}{{ memo[1].path }}">{{ memo[1].title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</body>
+</html>

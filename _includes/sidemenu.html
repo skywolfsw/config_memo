@@ -1,0 +1,13 @@
+<div class="sidemenu">
+  <ul>
+    {% for item in site.data.memos[include.type].list %}
+      <li>
+      {% if include.key == item[0] %}
+        <a href="{{ site.baseurl }}{{ item[1].path }}" class="sm_sel">{{ item[1].title }}</a>
+      {% else %}
+        <a href="{{ site.baseurl }}{{ item[1].path }}">{{ item[1].title }}</a>
+      {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
