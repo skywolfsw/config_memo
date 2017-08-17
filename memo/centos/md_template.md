@@ -1,7 +1,7 @@
 ---
 layout: memo
 type: centos
-key: samba
+key: md_template
 ---
 # 测试测试
 - 测试aaa

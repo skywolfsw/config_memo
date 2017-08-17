@@ -3,6 +3,9 @@
 
 @import "minima";
 
+$h_color:green;
+$p_font_size:16px;
+
 body {
   font-family: Sans-serif;
   background-color: #CCCCCC;
@@ -61,13 +64,12 @@ body {
     text-decoration: none;
     color: black;
     transition: .5s;
+    &:hover {
+      background-color: #66CCCC;
+      box-shadow: 0 0 20px #888888;
+    }
   }
-  
-  a:hover {
-    background-color: #66CCCC;
-    box-shadow: 0 0 20px #888888;
-  }
-  
+
   .sm_sel {
     background-color: #9999CC;
   }
@@ -95,16 +97,67 @@ body {
   border-bottom: 1px solid #AAAAAA;
   height: 30px;
   padding-left: 10px;
-  color: green;
+  color: #336666;
   line-height: 30px;
 }
 
 .content {
   margin: 10px 30px;
+
+  pre {
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid rgba(219, 229, 239, 1);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: $h_color;
+    border-bottom: .1em solid #D3CCC1;
+  }
+  
+  p {
+    margin-left: 1em;
+    font-size: $p_font_size;
+    white-space: pre;
+  }
+  
+  blockquote {
+    margin-left: 20px;
+    p {
+      margin-left: 0;
+    }
+  }
+  
+  table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: 1em;
+    
+    th {
+      padding: 0.5rem 1rem;
+      border: 1px solid #3F3F3F;
+      text-align: left;
+      font-weight: bold;
+      background-color: #3F3F3F;
+      color: #fff;
+    }
+    
+    td {
+      padding: 0.5rem 1rem;
+      border: 1px solid #aaa;
+      text-align: left;
+    }
+    tr:nth-child(even) {
+      background-color: #F5F5F5;
+    }
+    tr:nth-child(odd) {
+      background-color: #fff;
+    }
+  }
 }
 
-.content pre {
-  margin-left: 20px;
-  margin-right: 20px;
-  border: 1px solid rgba(219, 229, 239, 1);
-}
+
+

@@ -4,6 +4,6 @@ type: centos
 key: sudo
 ---
 
-
+## sudo
 
 

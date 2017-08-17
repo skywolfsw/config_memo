@@ -2,12 +2,16 @@ centos:
   title: centos
   path: '/memo/centos/samba'
   list:
+  
+    sudo:
+      title: sudo权限设置
+      path: '/memo/centos/sudo'
 
     samba:
-      title: 文件共享
+      title: 文件共享设置
       path: '/memo/centos/samba'
     
-    ruby:
-      title: ruby
-      path: 'memo/centos/ruby'
+    md_template:
+      title: Markdown显示例
+      path: '/memo/centos/md_template'
 
