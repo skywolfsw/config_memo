@@ -1,6 +1,6 @@
 centos:
   title: centos
-  path: '/memo/centos/samba'
+  path: '/memo/centos/sudo'
   list:
   
     sudo:
@@ -22,6 +22,10 @@ centos:
     gcc:
       title: GCC编译环境
       path: '/memo/centos/gcc'
+      
+    php:
+      title: PHP
+      path: '/memo/centos/php'
     
     md_template:
       title: Markdown显示例
