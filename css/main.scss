@@ -5,10 +5,12 @@
 
 $h_color:green;
 $p_font_size:16px;
+$bg_color_main: #CCCCCC;
 
 body {
   font-family: Sans-serif;
-  background-color: #CCCCCC;
+  background-color: $bg_color_main;
+  position: relative;
 }
 
 .header {
@@ -59,7 +61,7 @@ body {
   
   a {
     display: block;
-    padding: 5px 0px 5px 20px;
+    padding: 2px 0px 2px 20px;
     margin: 0px 0px;
     text-decoration: none;
     color: black;
@@ -72,6 +74,7 @@ body {
 
   .sm_sel {
     background-color: #9999CC;
+    font-weight: bold;
   }
 }
 
@@ -81,15 +84,26 @@ body {
   font-size: 30px;
 }
 
-.paper {
+.paper_container {
   position: absolute;
   top: 50px;
   left: 210px;
   right: 100px;
+}
+
+.paper {
   background-color: white;
   box-shadow: 0 0 20px #888888;
-  min-height: 500px;
+  min-height: 800px;
   min-width: 600px;
+}
+
+.paper_bottom {
+  position: relative;
+  background-color: $bg_color_main;
+  width: 100%;
+  height: 20px;
+  z-index: -1;
 }
 
 .position {
@@ -102,16 +116,27 @@ body {
 }
 
 .content {
-  margin: 10px 30px;
+  padding: 10px 30px 50px 30px;
+  word-wrap: break-word;
+  word-break: normal;
+  z-index: 100;
 
   pre {
     margin-left: 20px;
     margin-right: 20px;
     border: 1px solid rgba(219, 229, 239, 1);
+    word-wrap: normal;
+    word-break: normal;
+    overflow: auto;
   }
   
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h5, h6 {
     color: $h_color;
+    border-bottom: .1em solid #D3CCC1;
+  }
+  
+  h4 {
+    color: red;
     border-bottom: .1em solid #D3CCC1;
   }
   
@@ -119,6 +144,10 @@ body {
     margin-left: 1em;
     font-size: $p_font_size;
     white-space: pre;
+  }
+  
+  li {
+    margin: 10px 0;
   }
   
   blockquote {

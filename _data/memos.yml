@@ -6,10 +6,22 @@ centos:
     sudo:
       title: sudo权限设置
       path: '/memo/centos/sudo'
+      
+    ssh:
+      title: 开启SSH服务
+      path: '/memo/centos/ssh'
 
     samba:
       title: 文件共享设置
       path: '/memo/centos/samba'
+      
+    github:
+      title: GitHub
+      path: '/memo/centos/github'
+    
+    gcc:
+      title: GCC编译环境
+      path: '/memo/centos/gcc'
     
     md_template:
       title: Markdown显示例

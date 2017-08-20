@@ -3,106 +3,68 @@ layout: memo
 type: centos
 key: samba
 ---
-# 测试测试
-- 测试aaa
-- 测试bbb
 
-## 测试测试
-- 测试aaa
-- 测试bbb
-
-### 测试测试
-- 测试aaa
-- 测试bbb
-
-#### 测试测试
-- 测试aaa
-- 测试bbb
-
-##### 测试测试
-- 测试aaa
-  - asdafd
-  - adfafd
-- 测试bbb
-
-###### 测试测试
-- 测试aaa
-- 测试bbb
-
-> 测试测试
-> abcdddd
-
-aksdhfkahf
-这是第二行
-
-*This text will be italic*
-_This will also be italic_
-
-**This text will be bold**
-__This will also be bold__
-
-_You **can** combine them_
-
-1. Item 1
-1. Item 2
-1. Item 3
-   1. Item 3a
-   1. Item 3b
-
-http://github.com - automatic!
-[GitHub](http://github.com)
-
-I think you should use an
-`<addr>` element here instead.
-
-- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
-- [x] list syntax required (any unordered or ordered list supported)
-- [x] this is a complete item
-- [ ] this is an incomplete item
-
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
-
-~~this~~
-
-[link to Google!](http://google.com)
-
-```javascript
-// 测试代码
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
-```
-
-```ruby
-# 测试代码
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
+## 安装
 
 ```shell
-# 测试代码
-$ sudo service smb restart
-$ reboot
+# 安装samba
+$ sudo yum -y install samba samba-client samba-common
+# <Opt>查看Samba版本信息
+$ rpm -qi samba
+```
+## 设置
+
+#### 1. 启动samba服务
+```shell
+# 启动samba服务
+$ sudo service smb start
+# 启动samba别名服务
+$ sudo service nmb start
+# 设置开机启动
+$ sudo chkconfig smb on
+$ sudo chkconfig nmb on
+```
+#### 2. 防火墙
+设置防火墙开启一下端口
+UDP 137
+UDP 138
+TCP 139
+TCP 445
+- CentOS 6.5
+```shell
+# 打开防火墙配置文件
+$ sudo vi /etc/sysconfig/iptables
+# 在文件中追加如下内容并保存
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 139 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 445 -j ACCEPT
+-A INPUT -m state --state NEW -m udp -p udp --dport 137 -j ACCEPT
+-A INPUT -m state --state NEW -m udp -p udp --dport 138 -j ACCEPT
+# 重启防火墙是规则生效
+$ sudo service iptables restart
+```
+- CentOS 7
+```shell
+# 开启需要的端口
+$ sudo firewall-cmd --zone=public --add-port=139/tcp --permanent
+$ sudo firewall-cmd --zone=public --add-port=445/tcp --permanent
+$ sudo firewall-cmd --zone=public --add-port=137/udp --permanent
+$ sudo firewall-cmd --zone=public --add-port=138/udp --permanent
+# 重启防火墙是规则生效
+$ sudo service iptables restart
 ```
 
-```c++
-// 测试代码
-char a = 10;
-class test = new TestClass;
-return a++;
+#### 3. 关闭SELinux
+```shell
+# 临时关闭SELinux
+$ sudo setenforce 0
+# 修改SELinux设置（重启系统后才会生效，如果已临时关闭SELinux，则不用重启）
+$ sudo vi /etc/selinux/config
+# 修改 SELINUX=enforcing 为
+SELINUX=disabled
 ```
-
-```c
-// 测试代码
-char a = 10;
-class test = new TestClass;
-return a++;
+#### 4. 添加samba用户
+```shell
+# 将已有的linux用户追加到Samba用户，并设置密码（这里的密码是Samba的密码，不是登录linux系统的密码）
+$ sudo smbpasswd -a username
 ```
-
-
+用户的home目录的共享默认是打开的，所以此时通过追加的用户名密码登录共享即可访问用户的home目录。

@@ -7,10 +7,12 @@
   {% include header.html %}
   {% include sidemenu.html type=page.type key=page.key %}
   {% assign current = site.data.memos[page.type].list[page.key] %}
-  <div class="paper">
-    <div class="position"><span>{{ page.type }}&nbsp;>>&nbsp;{{ current.title }}</span></div>
-    <div class="content">{{ content }}</div>
+  <div class="paper_container">
+    <div class="paper">
+      <div class="position"><span>{{ page.type }}&nbsp;>>&nbsp;{{ current.title }}</span></div>
+      <div class="content">{{ content }}</div>
+    </div>
+    <div class="paper_bottom"><div>
   </div>
-
 </body>
 </html>
