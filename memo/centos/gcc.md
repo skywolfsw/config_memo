@@ -9,5 +9,5 @@ key: gcc
 ```shell
 sudo yum -y install gcc
 sudo yum -y install gcc-c++ 
-sudo yum install make
+sudo yum -y install make
 ```
