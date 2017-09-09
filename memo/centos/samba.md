@@ -50,7 +50,7 @@ $ sudo firewall-cmd --zone=public --add-port=445/tcp --permanent
 $ sudo firewall-cmd --zone=public --add-port=137/udp --permanent
 $ sudo firewall-cmd --zone=public --add-port=138/udp --permanent
 # 重启防火墙是规则生效
-$ sudo service iptables restart
+$ sudo service firewalld restart
 ```
 
 #### 3. 关闭SELinux
