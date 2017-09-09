@@ -2,4 +2,4 @@
 Install&amp;Config memo
 
 ## 环境
-- [Jekyll](http://192.168.5.62:4000/memo/centos/jekyll)
+- [Jekyll](https://skywolfsw.github.io/config_memo/memo/centos/jekyll)
