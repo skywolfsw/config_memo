@@ -16,7 +16,7 @@ $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 ```shell
 $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 ```
-3. 执行下述命令设置命令行的rbenv指令
+3. 加入执行rbenv的初始化的命令
 ```shell
 $ ~/.rbenv/bin/rbenv init
 $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile

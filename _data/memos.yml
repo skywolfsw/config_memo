@@ -27,10 +27,6 @@ centos:
       title: OpenSSL
       path: '/memo/centos/openssl'
       
-    php:
-      title: PHP
-      path: '/memo/centos/php'
-      
     rbenv:
       title: rbenv
       path: '/memo/centos/rbenv'
@@ -46,3 +42,11 @@ centos:
     jekyll:
       title: Jekyll
       path: '/memo/centos/jekyll'
+      
+    phpenv:
+      title: phpenv
+      path: '/memo/centos/phpenv'
+    
+    php:
+      title: PHP
+      path: '/memo/centos/php'
