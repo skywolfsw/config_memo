@@ -34,7 +34,7 @@ TCP 445
 ```shell
 # 打开防火墙配置文件
 $ sudo vi /etc/sysconfig/iptables
-# 在文件中追加如下内容并保存
+# 在文件中追加如下内容并保存（注意位置，追加在其他【-A INPUT】的后面）
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 139 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 445 -j ACCEPT
 -A INPUT -m state --state NEW -m udp -p udp --dport 137 -j ACCEPT
