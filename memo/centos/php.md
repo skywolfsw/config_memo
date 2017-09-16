@@ -4,6 +4,9 @@ type: centos
 key: php
 ---
 
+## 前提
+- 建议先将【[问题&解决方法](#solutions)】中的包先安装之后再开始php的安装
+
 ## 安装
 
 - [方法一 用rbenv安装](#rbenv)
@@ -48,15 +51,16 @@ make
 sudo make install
 ```
 
+<div id="solutions"></div>
 ## 问题&解决方法
 
-1. 安装时提示：
+1. 提示
 ```shell
 configure: error: xml2-config not found. Please check your libxml2 installation.
 ```
 解决方法：
 ```shell
-# 重新安装libxml2和libxml2-devel包
+# 安装libxml2和libxml2-devel包
 $ sudo yum install -y libxml2 libxml2-devel
 ```
 2. 提示：
@@ -84,8 +88,8 @@ configure: error: jpeglib.h not found.
 ```
 解决方法：
 ```shell
-# 安装libcurl和libcurl-devel包
-$ sudo yum -y install libcurl libcurl-devel
+# 安装libjpeg-devel包
+$ sudo yum -y install libjpeg-devel
 ```
 5. 提示：
 ```shell
@@ -123,6 +127,16 @@ configure: error: Cannot find libtidy
 ```
 解决方法：
 ```shell
-# ???
+# 安装libtidy和libtidy-devel包
+$ sudo yum -y install libtidy libtidy-devel
 ```
-9. （待追加。。。）
+9. 提示：
+```shell
+configure: error: xslt-config not found. Please reinstall the libxslt >= 1.1.0 distribution
+```
+解决方法：
+```shell
+# 安装libxslt-devel包
+$ sudo yum -y install libxslt-devel
+```
+
