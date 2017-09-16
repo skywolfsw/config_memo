@@ -50,3 +50,11 @@ centos:
     php:
       title: PHP
       path: '/memo/centos/php'
+      
+    composer:
+      title: Composer
+      path: '/memo/centos/composer'
+      
+    laravel:
+      title: Laravel
+      path: '/memo/centos/laravel'
