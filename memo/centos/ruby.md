@@ -5,9 +5,9 @@ key: ruby
 ---
 
 ## 前提
-- [rbenv](/memo/centos/rbenv)
-- [GCC编译环境](/memo/centos/gcc)
-- [OpenSSL](/memo/centos/openssl)
+- [rbenv]({{ site.baseurl }}/memo/centos/rbenv)
+- [GCC编译环境]({{ site.baseurl }}/memo/centos/gcc)
+- [OpenSSL]({{ site.baseurl }}/memo/centos/openssl)
 
 ## 安装
 ```shell

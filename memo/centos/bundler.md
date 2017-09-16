@@ -5,7 +5,7 @@ key: bundler
 ---
 
 ## 前提
-- [RubyGems](/memo/centos/ruby)
+- [RubyGems]({{ site.baseurl }}/memo/centos/ruby)
 
 ## 安装
 ```shell

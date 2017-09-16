@@ -13,7 +13,7 @@ key: php
 ### 方法一 用rbenv安装
 
 #### 前提
-- [phpenv & php-build](/memo/centos/phpenv)
+- [phpenv & php-build]({{ site.baseurl }}/memo/centos/phpenv)
 
 #### 安装
 ```shell

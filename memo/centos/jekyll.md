@@ -5,10 +5,10 @@ key: jekyll
 ---
 
 ## 前提
-- [Ruby & RubyGems](/memo/centos/ruby)
+- [Ruby & RubyGems]({{ site.baseurl }}/memo/centos/ruby)
 
 使用时还需要：
-- [bundler](/memo/centos/bundler)
+- [bundler]({{ site.baseurl }}/memo/centos/bundler)
 
 ## 安装
 

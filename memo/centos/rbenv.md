@@ -5,7 +5,7 @@ key: rbenv
 ---
 
 ## 前提
-- [git](/memo/centos/github)
+- [git]({{ site.baseurl }}/memo/centos/github)
 
 ## 安装
 1. 从github上下载rbenv的代码
