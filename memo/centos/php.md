@@ -9,11 +9,11 @@ key: php
 
 ## 安装
 
-- [方法一 用rbenv安装](#rbenv)
+- [方法一 用phpenv安装](#phpenv)
 - [方法二 编译安装](#build)
 
-<div id="rbenv"></div>
-### 方法一 用rbenv安装
+<div id="phpenv"></div>
+### 方法一 用phpenv安装
 
 #### 前提
 - [phpenv & php-build]({{ site.baseurl }}/memo/centos/phpenv)
