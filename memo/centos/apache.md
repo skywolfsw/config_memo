@@ -7,7 +7,7 @@ key: apache
 ## 安装
 
 ```shell
-$ sudo yum install -y httpd
+$ sudo yum install -y httpd httpd-devel
 ```
 
 ## 设置

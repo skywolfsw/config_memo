@@ -17,11 +17,27 @@ key: php
 
 #### 前提
 - [phpenv & php-build]({{ site.baseurl }}/memo/centos/phpenv)
+- 如果准备用Apache搭建服务器环境的话还需要先安装[Apache]({{ site.baseurl }}/memo/centos/apache)
 
 #### 安装
+- 不使用Apache时的安装方法
 ```shell
 # 查看可安装列表
 $ php-build --definitions
+# 安装指定版本，例：5.5.9
+$ php-build 5.5.9 ~/.phpenv/versions/5.5.9
+```
+- 使用Apache时的安装方法
+```shell
+# 查看可安装列表
+$ php-build --definitions
+# 查看apxs所在的路径
+$ rpm -ql httpd-devel | grep apxs
+# 修改准备安装的版本的编译配置
+$ sudo vi /usr/local/share/php-build/definitions/5.5.9
+# configure_option修改为
+configure_option "--with-apxs2=/usr/bin/apxs --with-mysql=mysqlnd"
+# 安装前先确认一下httpd的modules文件夹的权限，需要有写入权限，否则libphp5.so文件会写入失败
 # 安装指定版本，例：5.5.9
 $ php-build 5.5.9 ~/.phpenv/versions/5.5.9
 ```
@@ -130,6 +146,16 @@ configure: error: Cannot find libtidy
 # 安装libtidy和libtidy-devel包
 $ sudo yum -y install libtidy libtidy-devel
 ```
+如果上述方法报错，可以尝试下述方法：
+```shell
+# 下载libtidy和libtidy-devel的rpm文件
+$ wget ftp://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/libtidy-5.4.0-3.fc27.x86_64.rpm
+$ wget ftp://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/libtidy-devel-5.4.0-3.fc27.x86_64.rpm
+# 安装libtidy和libtidy-devel
+$ sudo rpm -ivh libtidy-5.4.0-3.fc27.x86_64.rpm
+$ sudo rpm -ivh libtidy-devel-5.4.0-3.fc27.x86_64.rpm
+```
+注：这里的rpm文件是64位系统用的，如果需要32位系统或者其他版本可以到[rpmfind]( http://rpmfind.net/ )网站上找到相应的下载地址。
 9. 提示：
 ```shell
 configure: error: xslt-config not found. Please reinstall the libxslt >= 1.1.0 distribution
@@ -138,5 +164,28 @@ configure: error: xslt-config not found. Please reinstall the libxslt >= 1.1.0 d
 ```shell
 # 安装libxslt-devel包
 $ sudo yum -y install libxslt-devel
+```
+10. 提示：
+```shell
+configure: error: Don't know how to define struct flock on this system, set --enable-opcache=no
+```
+解决方法：
+```shell
+# 编辑库文件
+$ sudo vi /etc/ld.so.conf.d/local.conf
+# 64位系统添加该行，如果是32位系统需要将下属lib64改为lib。之后保存退出
+/usr/local/lib64
+# 使之生效
+$ sudo ldconfig -v
+```
+11. 提示：
+```shell
+Cannot find autoconf. Please check your autoconf installation and the
+$PHP_AUTOCONF environment variable. Then, rerun this script.
+```
+解决方法：
+```shell
+# 编辑库文件
+$ sudo yum install -y autoconf
 ```
 
