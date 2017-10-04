@@ -27,5 +27,11 @@ $ laravel new blog
 $ composer create-project laravel/laravel blog "5.1.*"
 ```
 
+## 环境配置
+```
+# 生成APP_KEY
+$ php artisan key:generate
+```
+
 ## 参考
 - [https://docs.golaravel.com/docs/5.1/installation/](https://docs.golaravel.com/docs/5.1/installation/)

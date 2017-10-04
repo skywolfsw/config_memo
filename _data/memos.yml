@@ -58,3 +58,7 @@ centos:
     laravel:
       title: Laravel
       path: '/memo/centos/laravel'
+      
+    apache:
+      title: Apache
+      path: '/memo/centos/apache'
