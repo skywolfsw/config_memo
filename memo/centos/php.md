@@ -35,11 +35,13 @@ $ php-build --definitions
 $ rpm -ql httpd-devel | grep apxs
 # 修改准备安装的版本的编译配置
 $ sudo vi /usr/local/share/php-build/definitions/5.5.9
-# configure_option修改为
+# configure_option修改为如下，其中[/usr/bin/apxs]为前面查到的apxs所在的路径
 configure_option "--with-apxs2=/usr/bin/apxs --with-mysql=mysqlnd"
 # 安装前先确认一下httpd的modules文件夹的权限，需要有写入权限，否则libphp5.so文件会写入失败
 # 安装指定版本，例：5.5.9
 $ php-build 5.5.9 ~/.phpenv/versions/5.5.9
+# 备份libphp5.so文件，因为安装其他版本时该文件会被覆盖。切换版本时记得将相应版本的libphp5.so文件拷回/etc/httpd/modules/
+$ cp /etc/httpd/modules/libphp5.so ~/.phpenv/versions/5.5.9/
 ```
 
 <div id="build"></div>
@@ -189,3 +191,5 @@ $PHP_AUTOCONF environment variable. Then, rerun this script.
 $ sudo yum install -y autoconf
 ```
 
+## 参考
+- [virtualbox(centos)でphpenv+php-buildインストールメモ(5.3,5.4変更確認まで) - Qiita]( https://qiita.com/ryurock/items/7d031440bb174a55a6a1 )

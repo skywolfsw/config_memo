@@ -28,9 +28,14 @@ $ composer create-project laravel/laravel blog "5.1.*"
 ```
 
 ## 环境配置
-```
-# 生成APP_KEY
+- 修改`storage`和`bootstrap/cache`文件夹的权限，使web服务有这些文件夹的写入权限
+- 如果没有APP_KEY，可以使用下述命令生成APP_KEY
+```shell
 $ php artisan key:generate
+```
+- 开发环境可以使用下述启动服务
+```shell
+$ php artisan serve --host=192.168.1.100 --port=80
 ```
 
 ## 参考
