@@ -1,8 +1,8 @@
 centos:
-  title: centos
+  title: CentOS
   path: '/memo/centos/sudo'
   list:
-  
+    
     sudo:
       title: sudo权限设置
       path: '/memo/centos/sudo'
@@ -62,3 +62,13 @@ centos:
     apache:
       title: Apache
       path: '/memo/centos/apache'
+      
+aliyun:
+  title: 阿里云
+  path: '/memo/aliyun/laravel'
+  list:
+    
+    laravel:
+      title: 万网虚拟主机上部署laravel
+      path: '/memo/aliyun/laravel'
+      
