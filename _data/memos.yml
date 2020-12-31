@@ -2,73 +2,55 @@ centos:
   title: CentOS
   path: '/memo/centos/sudo'
   list:
-    
     sudo:
       title: sudo权限设置
       path: '/memo/centos/sudo'
-      
     ssh:
       title: 开启SSH服务
       path: '/memo/centos/ssh'
-      
     samba:
       title: 文件共享设置
       path: '/memo/centos/samba'
-      
     github:
       title: GitHub
       path: '/memo/centos/github'
-    
     gcc:
       title: GCC编译环境
       path: '/memo/centos/gcc'
-      
     openssl:
       title: OpenSSL
       path: '/memo/centos/openssl'
-      
     rbenv:
       title: rbenv
       path: '/memo/centos/rbenv'
-      
     ruby:
       title: Ruby
       path: '/memo/centos/ruby'
-      
-    bundler: 
+    bundler:
       title: bundler
       path: '/memo/centos/bundler'
-      
     jekyll:
       title: Jekyll
       path: '/memo/centos/jekyll'
-      
     phpenv:
       title: phpenv
       path: '/memo/centos/phpenv'
-    
     php:
       title: PHP
       path: '/memo/centos/php'
-      
     composer:
       title: Composer
       path: '/memo/centos/composer'
-      
     laravel:
       title: Laravel
       path: '/memo/centos/laravel'
-      
     apache:
       title: Apache
       path: '/memo/centos/apache'
-      
 aliyun:
   title: 阿里云
   path: '/memo/aliyun/laravel'
   list:
-    
     laravel:
       title: 万网虚拟主机上部署laravel
       path: '/memo/aliyun/laravel'
-      
