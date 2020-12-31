@@ -54,3 +54,10 @@ aliyun:
     laravel:
       title: 万网虚拟主机上部署laravel
       path: '/memo/aliyun/laravel'
+aws:
+  title: AWS
+  path: '/memo/aws/shadowsocks'
+  list:
+    shadowsocks:
+      title: ShadowSocks
+      path: '/memo/aws/shadowsocks'
