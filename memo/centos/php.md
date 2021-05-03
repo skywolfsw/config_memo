@@ -151,13 +151,13 @@ $ sudo yum -y install libtidy libtidy-devel
 如果上述方法报错，可以尝试下述方法：
 ```shell
 # 下载libtidy和libtidy-devel的rpm文件
-$ wget ftp://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/libtidy-5.4.0-3.fc27.x86_64.rpm
-$ wget ftp://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/l/libtidy-devel-5.4.0-3.fc27.x86_64.rpm
+$ wget https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/l/libtidy-5.4.0-1.el7.x86_64.rpm
+$ wget https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/l/libtidy-devel-5.4.0-1.el7.x86_64.rpm
 # 安装libtidy和libtidy-devel
-$ sudo rpm -ivh libtidy-5.4.0-3.fc27.x86_64.rpm
-$ sudo rpm -ivh libtidy-devel-5.4.0-3.fc27.x86_64.rpm
+$ sudo rpm -ivh libtidy-5.4.0-1.el7.x86_64.rpm
+$ sudo rpm -ivh libtidy-devel-5.4.0-1.el7.x86_64.rpm
 ```
-注：这里的rpm文件是64位系统用的，如果需要32位系统或者其他版本可以到[rpmfind]( http://rpmfind.net/ )网站上找到相应的下载地址。
+注：这里的rpm文件是64位系统用的，如果需要32位系统或者其他版本可以到[pkgs.org]( https://centos.pkgs.org/ )网站上找到相应的下载地址。
 9. 提示：
 ```shell
 configure: error: xslt-config not found. Please reinstall the libxslt >= 1.1.0 distribution
