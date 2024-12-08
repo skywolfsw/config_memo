@@ -1,5 +1,5 @@
 services:
-  devcontainer:
+  dev:
     # build: .
     build:
       context: ..
