@@ -1,0 +1,6 @@
+services:
+  httpserver:
+    build: .
+    container_name: config_memo
+    ports:
+      - 40001:4000
