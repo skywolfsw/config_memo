@@ -1,3 +1,10 @@
+linux:
+  title: Linux
+  path: '/memo/linux/cmdlist'
+  list:
+    cmdlist:
+      title: 常用命令一览
+      path: '/memo/linux/cmdlist'
 centos:
   title: CentOS
   path: '/memo/centos/sudo'
