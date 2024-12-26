@@ -12,11 +12,7 @@ $ dmidecode -q # 显示硬件系统部件
 $ (SMBIOS / DMI) hdparm -i /dev/hda # 罗列一个磁盘的架构特性
 $ hdparm -tT /dev/sda # 在磁盘上执行测试性读取操作系统信息
 $ arch # 显示机器的处理器架构
-$ uname -m # 显示机器的处理器架构
-$ uname -r # 显示正在使用的内核版本
-$ dmidecode -q # 显示硬件系统部件 - (SMBIOS / DMI)
 $ hdparm -i /dev/hda # 罗列一个磁盘的架构特性
-$ hdparm -tT /dev/sda # 在磁盘上执行测试性读取操作
 $ cat /proc/cpuinfo # 显示CPU info的信息
 $ cat /proc/interrupts # 显示中断
 $ cat /proc/meminfo # 校验内存使用
@@ -122,6 +118,41 @@ $ du -sh dir1 # 估算目录 'dir1' 已经使用的磁盘空间
 $ du -sk * | sort -rn # 以容量大小为依据依次显示文件和目录的大小
 $ rpm -q -a --qf '%10{SIZE}t%{NAME}n' | sort -k1,1n # 以大小为依据依次显示已安装的rpm包所使用的空间 (fedora, redhat类系统)
 $ dpkg-query -W -f='${Installed-Size;10}t${Package}n' | sort -k1,1n # 以大小为依据显示已安装的deb包所使用的空间 (ubuntu, debian类系统)
+
+# 列出系统中的块设备(包括磁盘和分区)
+$ lsblk
+$ lsblk -f
+# 显示所有磁盘设备的分区表信息
+$ fdisk -l
+$ parted -l
+
+# 创建物理卷
+$ pvcreate /dev/sdb
+# 创建卷组
+$ vgcreate vg_data /dev/sdb
+# 创建逻辑卷
+$ lvcreate -L 100G -n lv_data vg_data
+# 格式化逻辑卷(ext4)
+$ mkfs.ext4 /dev/vg_data/lv_data
+# 挂载逻辑卷
+$ mkdir /mnt/data # 创建挂载点（如果不存在）
+$ mount /dev/vg_data/lv_data /mnt/data
+# 扩展逻辑卷
+$ lvdisplay /dev/vg_data/lv_data # 查看逻辑卷的信息
+$ lvextend -L +50G /dev/vg_data/lv_data
+$ resize2fs /dev/vg_data/lv_data # 调整文件系统大小
+# 添加物理卷到卷组
+$ pvcreate /dev/sdc1 # 创建新物理卷
+$ vgextend vg_data /dev/sdc1
+# 移除物理卷
+$ vgreduce vg_data /dev/sdb1
+# 移除逻辑卷
+$ lvremove /dev/vg_data/lv_data
+# 数据备份与恢复
+$ lvcreate -L 20G -s -n lv_data_snapshot /dev/vg_data/lv_data # 创建快照
+$ lvconvert --merge /dev/vg_data/lv_data_snapshot # 恢复快照
+# 磁盘故障恢复
+$ lvcreate -L 100G -m1 -n lv_data_mirror vg_data /dev/sdd1 # 创建镜像卷
 ```
 
 ### 7、用户和群组
@@ -137,7 +168,7 @@ $ passwd # 修改口令
 $ passwd user1 # 修改一个用户的口令 (只允许root执行)
 $ chage -E 2005-12-31 user1 # 设置用户口令的失效期限
 $ pwck # 检查 '/etc/passwd' 的文件格式和语法修正以及存在的用户
-$ grpck#  检查 '/etc/passwd' 的文件格式和语法修正以及存在的群组
+$ grpck # 检查 '/etc/passwd' 的文件格式和语法修正以及存在的群组
 $ newgrp group_name # 登陆进一个新的群组以改变新创建文件的预设群组
 ```
 
