@@ -125,6 +125,8 @@ $ lsblk -f
 # 显示所有磁盘设备的分区表信息
 $ fdisk -l
 $ parted -l
+# 显示物理卷
+$ pvs
 
 # 创建物理卷
 $ pvcreate /dev/sdb
