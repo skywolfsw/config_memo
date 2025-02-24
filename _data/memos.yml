@@ -54,6 +54,16 @@ centos:
     apache:
       title: Apache
       path: '/memo/centos/apache'
+fnos:
+  title: 飞牛OS
+  path: /memo/fnos/sleep
+  list:
+    sleep:
+      title: 合盖不休眠
+      path: /memo/fnos/sleep
+    upower:
+      title: 电池做UPS
+      path: /memo/fnos/upower
 aliyun:
   title: 阿里云
   path: '/memo/aliyun/laravel'
